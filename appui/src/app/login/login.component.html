@@ -1,0 +1,31 @@
+<div class="main-container">
+    <!-- form title/heading here -->
+    <div class="title">
+        <span>Login</span>
+    </div>
+    <!-- form title/heading ends -->
+    <!-- login form here -->
+    <div class="form-items">
+        <form>
+            <!-- error/warning message (ngSubmit)="onSubmit()" #f="ngForm"-->
+            <!-- <div class="warning">
+                <span>Email Invalid!!!</span>
+            </div> -->
+            <input type="email" name="email" placeholder="Email..." ngModel required email #email="ngModel" /><br>
+            <input type="password" name="password" placeholder="Password..." ngModel reguired #password="ngModel" /><br>
+            <button type="submit" name="login">Login</button>
+        </form>
+    </div>
+    <!-- login form ends -->
+    <!-- create account link here -->
+    <div class="link">
+        <span>Don't have an account?</span>
+    </div>
+    <hr>
+    <!-- <div>
+        <p>Email: {{ user.email }}</p>
+        <p>Password: {{ user.password }}</p>
+
+    </div> -->
+    <!-- create account ends -->
+</div>

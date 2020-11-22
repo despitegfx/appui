@@ -1,0 +1,215 @@
+<div class="operation-container">
+    <div class="buttons-cover">
+        <a routerLink="#">
+            <div class="buttons">
+                <span>Buy</span>
+            </div>
+        </a>
+    </div>
+    <div class="buttons-cover">
+        <a routerLink="#">
+            <div class="buttons">
+                <span>Sell</span>
+            </div>
+        </a>
+    </div>
+    <div class="user-logo">
+        <div class="userlogo">
+            <span>A</span>
+        </div>
+    </div>
+    <div class="user">
+        <div class="username">
+            <span>Emmanuel Bonsu</span>
+        </div>
+    </div>
+
+
+</div>
+<div class="outline">
+    <div class="table-title">
+        <span>Portfolio</span>
+        <a routerLink="#" (click)="addProduct()">
+            <div class="add-portfolio">
+                <span>Add</span>
+            </div>
+        </a>
+    </div>
+
+
+    <a routerLink="#" class="pro" (click)="clicking()">
+        <div class="products">
+            <span>Mac</span>
+        </div>
+    </a>
+    <a routerLink="#" class="pro" (click)="clicking()">
+        <div class="products">
+            <span>Emmanuel</span>
+        </div>
+    </a>
+    <a routerLink="#" class="pro" (click)="clicking()">
+        <div class="products">
+            <span>HP Pavilion</span>
+        </div>
+    </a>
+    <a routerLink="#" class="pro" (click)="clicking()">
+        <div class="products">
+            <span>Desktop Machine</span>
+        </div>
+    </a>
+    <a routerLink="#" class="pro" (click)="clicking()">
+        <div class="products">
+            <span>Main Frame Computer</span>
+        </div>
+    </a>
+    <a routerLink="#" class="pro" (click)="clicking()">
+        <div class="products">
+            <span>Dell</span>
+        </div>
+    </a>
+    <a routerLink="#" class="pro" (click)="clicking()">
+        <div class="products">
+            <span>Mac</span>
+        </div>
+    </a>
+    <a routerLink="#" class="pro" (click)="clicking()">
+        <div class="products">
+            <span>Mac</span>
+        </div>
+    </a>
+    <a routerLink="#" class="pro" (click)="clicking()">
+        <div class="products">
+            <span>Emmanuel</span>
+        </div>
+    </a>
+    <a routerLink="#" class="pro" (click)="clicking()">
+        <div class="products">
+            <span>HP Pavilion</span>
+        </div>
+    </a>
+    <a routerLink="#" class="pro" (click)="clicking()">
+        <div class="products">
+            <span>Desktop Machine</span>
+        </div>
+    </a>
+    <a routerLink="#" class="pro" (click)="clicking()">
+        <div class="products">
+            <span>Main Frame Computer</span>
+        </div>
+    </a>
+    <a routerLink="#" class="pro" (click)="clicking()">
+        <div class="products">
+            <span>Mac</span>
+        </div>
+    </a>
+    <a routerLink="#" class="pro" (click)="clicking()">
+        <div class="products">
+            <span>Emmanuel</span>
+        </div>
+    </a>
+    <a routerLink="#" class="pro" (click)="clicking()">
+        <div class="products">
+            <span>HP Pavilion</span>
+        </div>
+    </a>
+    <a routerLink="#" class="pro" (click)="clicking()">
+        <div class="products">
+            <span>Desktop Machine</span>
+        </div>
+    </a>
+    <a routerLink="#" class="pro" (click)="clicking()">
+        <div class="products">
+            <span>Main Frame Computer</span>
+        </div>
+    </a>
+
+
+</div>
+
+
+<ng-template [ngIf]="whenclicked==true" [ngIfElse]="none">
+    <div class="outline">
+        <div class="table-wrapper">
+            <table width="80%">
+                <thead>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Order Value</th>
+                </thead>
+                <tbody>
+                    <td>Apple</td>
+                    <td>10</td>
+                    <td>$1.5</td>
+                </tbody>
+                <tbody>
+                    <td>IBM</td>
+                    <td>5</td>
+                    <td>$3</td>
+                </tbody>
+                <tbody>
+                    <td>HP</td>
+                    <td>100</td>
+                    <td>$1</td>
+                </tbody>
+                <tbody>
+                    <td>Dell</td>
+                    <td>6</td>
+                    <td>$2</td>
+                </tbody>
+                <tfoot>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Order Value</th>
+                </tfoot>
+            </table>
+        </div>
+        <div class="table-wrapper">
+            <table width="80%">
+                <thead>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Order Value</th>
+                </thead>
+                <tbody>
+                    <td>Apple</td>
+                    <td>10</td>
+                    <td>$1.5</td>
+                </tbody>
+                <tbody>
+                    <td>IBM</td>
+                    <td>5</td>
+                    <td>$3</td>
+                </tbody>
+                <tbody>
+                    <td>HP</td>
+                    <td>100</td>
+                    <td>$1</td>
+                </tbody>
+                <tbody>
+                    <td>Dell</td>
+                    <td>6</td>
+                    <td>$2</td>
+                </tbody>
+                <tfoot>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Order Value</th>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</ng-template>
+
+<!-- adding to portfolio -->
+<ng-template [ngIf]="whenclicked==false" [ngIfElse]="none">
+    <div class="outline">
+        <div class="addsome">
+
+        </div>
+    </div>
+</ng-template>
+<!-- adding to portfolio ends -->
+
+<ng-template #none>
+
+</ng-template>
