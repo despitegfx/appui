@@ -11,7 +11,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from './services/api.service';
-//import { CookieService } from 'ngx-cookie-service';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @NgModule({
@@ -28,9 +28,9 @@ import { ApiService } from './services/api.service';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    //CookieService,
+    
   ],
-  providers: [ApiService],
+  providers: [ApiService,CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

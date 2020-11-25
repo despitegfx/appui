@@ -1,26 +1,26 @@
 <div class="operation-container">
     <div class="buttons-cover">
-        <a routerLink="#">
-            <div class="buttons">
-                <span>Buy</span>
+        <a routerLink="['./']" (click)="logout()">
+            <div class="buttons" style="background-color: red;">
+                <span>Logout</span>
             </div>
         </a>
     </div>
     <div class="buttons-cover">
-        <a routerLink="#">
+        <a routerLink="['./']" (click)="onOrder()">
             <div class="buttons">
-                <span>Sell</span>
+                <span>Order</span>
             </div>
         </a>
     </div>
     <div class="user-logo">
         <div class="userlogo">
-            <span>A</span>
+            <span>{{ clientdetail['fname'].charAt(0) }}</span>
         </div>
     </div>
     <div class="user">
         <div class="username">
-            <span>Emmanuel Bonsu</span>
+            <span>{{ clientdetail['fname']+" "+clientdetail['lname'] }}</span>
         </div>
     </div>
 
@@ -29,7 +29,7 @@
 <div class="outline">
     <div class="table-title">
         <span>Portfolio</span>
-        <a routerLink="#" (click)="addProduct()">
+        <a routerLink="['./']" (click)="addProduct()">
             <div class="add-portfolio">
                 <span>Add</span>
             </div>
@@ -37,87 +37,87 @@
     </div>
 
 
-    <a routerLink="#" class="pro" (click)="clicking()">
+    <a routerLink="['./']"  class="pro" (click)="clicking()">
         <div class="products">
             <span>Mac</span>
         </div>
     </a>
-    <a routerLink="#" class="pro" (click)="clicking()">
+    <a routerLink="['./']" class="pro" (click)="clicking()">
         <div class="products">
             <span>Emmanuel</span>
         </div>
     </a>
-    <a routerLink="#" class="pro" (click)="clicking()">
+    <a routerLink="['./']" class="pro" (click)="clicking()">
         <div class="products">
             <span>HP Pavilion</span>
         </div>
     </a>
-    <a routerLink="#" class="pro" (click)="clicking()">
+    <a routerLink="['./']" class="pro" (click)="clicking()">
         <div class="products">
             <span>Desktop Machine</span>
         </div>
     </a>
-    <a routerLink="#" class="pro" (click)="clicking()">
+    <a routerLink="['./']" class="pro" (click)="clicking()">
         <div class="products">
             <span>Main Frame Computer</span>
         </div>
     </a>
-    <a routerLink="#" class="pro" (click)="clicking()">
+    <a routerLink="['./']" class="pro" (click)="clicking()">
         <div class="products">
             <span>Dell</span>
         </div>
     </a>
-    <a routerLink="#" class="pro" (click)="clicking()">
+    <a routerLink="['./']" class="pro" (click)="clicking()">
         <div class="products">
             <span>Mac</span>
         </div>
     </a>
-    <a routerLink="#" class="pro" (click)="clicking()">
+    <a routerLink="['./']" class="pro" (click)="clicking()">
         <div class="products">
             <span>Mac</span>
         </div>
     </a>
-    <a routerLink="#" class="pro" (click)="clicking()">
+    <a routerLink="['./']" class="pro" (click)="clicking()">
         <div class="products">
             <span>Emmanuel</span>
         </div>
     </a>
-    <a routerLink="#" class="pro" (click)="clicking()">
+    <a routerLink="['./']" class="pro" (click)="clicking()">
         <div class="products">
             <span>HP Pavilion</span>
         </div>
     </a>
-    <a routerLink="#" class="pro" (click)="clicking()">
+    <a routerLink="['./']" class="pro" (click)="clicking()">
         <div class="products">
             <span>Desktop Machine</span>
         </div>
     </a>
-    <a routerLink="#" class="pro" (click)="clicking()">
+    <a routerLink="['./']" class="pro" (click)="clicking()">
         <div class="products">
             <span>Main Frame Computer</span>
         </div>
     </a>
-    <a routerLink="#" class="pro" (click)="clicking()">
+    <a routerLink="['./']" class="pro" (click)="clicking()">
         <div class="products">
             <span>Mac</span>
         </div>
     </a>
-    <a routerLink="#" class="pro" (click)="clicking()">
+    <a routerLink="['./']" class="pro" (click)="clicking()">
         <div class="products">
             <span>Emmanuel</span>
         </div>
     </a>
-    <a routerLink="#" class="pro" (click)="clicking()">
+    <a routerLink="['./']" class="pro" (click)="clicking()">
         <div class="products">
             <span>HP Pavilion</span>
         </div>
     </a>
-    <a routerLink="#" class="pro" (click)="clicking()">
+    <a routerLink="['./']" class="pro" (click)="clicking()">
         <div class="products">
             <span>Desktop Machine</span>
         </div>
     </a>
-    <a routerLink="#" class="pro" (click)="clicking()">
+    <a routerLink="['./']" class="pro" (click)="clicking()">
         <div class="products">
             <span>Main Frame Computer</span>
         </div>
@@ -209,6 +209,27 @@
     </div>
 </ng-template>
 <!-- adding to portfolio ends -->
+
+
+<div class="outline" *ngIf="orderBringform==true">
+    <div class="addsome">
+        <div class="table-title">
+            <span>Make Order</span>
+        </div>
+        <form> 
+            <select name="ticker" id="ticker">
+                <option value="">Mac</option>
+                <option value="">Mac</option>
+                <option value="">Mac</option>
+                <option value="">Mac</option>
+            </select>&nbsp;
+            <input type="text" placeholder="price"><br>
+            <input type="text" placeholder="quantity"><br>
+            <button type="submit">Buy</button>
+        </form>
+    </div>
+</div>
+
 
 <ng-template #none>
 

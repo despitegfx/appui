@@ -26,6 +26,7 @@
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     background-color: rgb(10, 10, 63);
+    padding: 2em;
 }
 
 .form-items form {
@@ -66,6 +67,7 @@ button {
     margin-top: 15px;
     outline-style: none;
     font-size: 13pt;
+    margin-bottom: 1em;
 }
 
 button:hover {

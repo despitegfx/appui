@@ -4,51 +4,32 @@
         <span>Login</span>
     </div>
     <!-- form title/heading ends -->
-    <div class="warning" *ngIf="error==true">
-        <span>All fields are required!!!</span>
-    </div>
+    
     <!-- login form here -->
     <div>
         <form class="form-items" (ngSubmit)="onSubmit()"> 
+            <div class="warning" *ngIf="error==true">
+                <span>All fields are required!!!</span>
+            </div>
+            <div class="warning" *ngIf="incorrectError==true">
+                <span>Email/password is incorrect!!!</span>
+            </div>
+            <div class="warning" *ngIf="internetError=='Login failed, try again' ">
+                <span>Login failed, check internet connection</span>
+            </div>
             <input type="email" name="email" placeholder="Email..." [(ngModel)]="email" /><br>
             <input type="password" name="password" placeholder="Password..." [(ngModel)]="password" /><br>
-            <button type="submit" name="login">Login</button>
+            <button type="submit" name="login">Login</button><br>
         </form>
     </div>
-
     <!-- login form ends -->
     <!-- create account link here -->
     <div class="link">
-        <span>Don't have an account?</span>
+        <span>Don't have an account? 
+            <a routerLink="['./']" (click)="signUp()" >Signup</a>
+        </span>
+        <!-- <hr> -->
     </div>
-    <hr>
-    <!-- <div *ngFor="let h of employees">
-        <p><span style="color:red">BID_PRICE: </span>{{ h.BID_PRICE }} 
-            <span style="color:red">ASK_PRICE: </span>{{ h.ASK_PRICE}} 
-            <span style="color:red">BUY_LIMIT: </span>{{ h.BUY_LIMIT }}
-            <span style="color:red">TICKER: </span>{{ h.TICKER }}
-            <span style="color:red">SELL_LIMIT: </span>{{ h.SELL_LIMIT }}
-            <span style="color:red">LAST_TRADED_PRICE: </span>{{ h.LAST_TRADED_PRICE }}
-            <span style="color:red">MAX_PRICE_SHIFT: </span>{{ h.MAX_PRICE_SHIFT }}
-        </p>
-
-    </div> -->
-
-    <!-- <div>
-        <p><span style="color:red">id: </span>{{ employees.id }} <br>
-            <span style="color:red">fname: </span>{{ employees.fname }} <br>
-            <span style="color:red">lname: </span>{{ employees.lname }} <br>
-            <span style="color:red">email: </span>{{ employees.email }} <br>
-            <span style="color:red">password: </span>{{ employees.password }} <br>
-            <span style="color:red">cardDetails: </span>{{ employees.cardDetails }} <br>
-            <span style="color:red">bankBalance: </span>{{ employees.bankBalance }} <br>
-            <span style="color:red">userPortfolio: </span>{{ employees.userPortfolio }} <br>
-            <span style="color:red">links: </span>{{ employees._links.self.href }} <br>
-            <span style="color:red">Other links: </span>{{ employees._links.clients.href }}
-        </p>
-
-    </div> -->
-
-    <!-- {{ employees }} -->
+    
     <!-- create account ends -->
 </div>
