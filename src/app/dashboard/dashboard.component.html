@@ -9,14 +9,14 @@
     <div class="buttons-cover">
         <a routerLink="['./']" (click)="onOrder()">
             <div class="buttons">
-                <span>Order</span>
+                <span>Place Order</span>
             </div>
         </a>
     </div>
     <div class="buttons-cover">
         <a routerLink="['./']" (click)="brindOrdersTable()">
             <div class="buttons">
-                <span>View Order</span>
+                <span>View Orders</span>
             </div>
         </a>
     </div>
@@ -171,11 +171,16 @@
         </div>
     </ng-template>
 
+    
     <div class="outline" *ngIf="BringOrdersTable==true">
         <div class="table-title">
             <span>All Orders</span>
         </div>
-        <div class="table-wrapper" >
+        <ng-template #none>
+            <span style="text-align: center; color: white; font-size: 16pt ;">No Order Made,  Please Place an Order<a style="color:rgb(238, 129, 12);" (click)="onOrder()" routerLink="['/']"> Here</a></span>
+        </ng-template>
+        <ng-template [ngIf]=" allOrders!='' " [ngIfElse]="none">
+        <div class="table-wrapper">
             <table width="100%">
                 <thead>
                     <th>#</th>
@@ -218,6 +223,7 @@
                 </tfoot>
             </table>
         </div>
+        </ng-template>
     </div>
 
 <!-- adding to portfolio -->
