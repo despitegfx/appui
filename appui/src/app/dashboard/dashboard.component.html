@@ -128,77 +128,94 @@
 
 
 <ng-template [ngIf]="whenclicked==true" [ngIfElse]="none">
+    
+        <div class="table-wrapper">
+            <table width="80%">
+                <thead>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Order Value</th>
+                </thead>
+                <tbody>
+                    <td>Apple</td>
+                    <td>10</td>
+                    <td>$1.5</td>
+                </tbody>
+                <tbody>
+                    <td>IBM</td>
+                    <td>5</td>
+                    <td>$3</td>
+                </tbody>
+                <tbody>
+                    <td>HP</td>
+                    <td>100</td>
+                    <td>$1</td>
+                </tbody>
+                <tbody>
+                    <td>Dell</td>
+                    <td>6</td>
+                    <td>$2</td>
+                </tbody>
+                <tfoot>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Order Value</th>
+                </tfoot>
+            </table>
+        </div>
+    </ng-template>
+
     <div class="outline">
-        <div class="table-wrapper">
-            <table width="80%">
+        <div class="table-title">
+            <span>All Orders</span>
+        </div>
+        <div class="table-wrapper" >
+            <table width="100%">
                 <thead>
+                    <th>#</th>
+                    <th>Order ID</th>
+                    <th>Unit Price</th>
+                    <th>Ticker</th>
+                    <th>Status ID</th>
                     <th>Quantity</th>
-                    <th>Price</th>
-                    <th>Order Value</th>
+                    <th>Transc. ID</th>
+                    <th>Created Date</th>
+                    <th>Modified Date</th>
+                    <th>Order Type ID</th>
+                    <!-- <th style="background-color: rgb(15, 173, 81);">Side</th> -->
                 </thead>
+                <div *ngFor="let come of allOrders">
                 <tbody>
-                    <td>Apple</td>
-                    <td>10</td>
-                    <td>$1.5</td>
+                    <td>4</td>
+                    <td>{{come.orderId}}</td>
+                    <td>{{come.userId}}</td>
+                    <td>{{come.unitPrice}}</td>
+                    <td>{{come.tickerSymbol}}</td>
+                    <td>{{come.statusId}}</td>
+                    <td>{{come.transactionId}}</td>
+                    <td>{{come.dateCreated}}</td>
+                    <td>{{come.dateModified}}</td>
+                    <td>{{come.orderTypeId}}</td>
+                    <!-- <td style="background-color: rgb(15, 173, 81);">BUY</td> -->
                 </tbody>
-                <tbody>
-                    <td>IBM</td>
-                    <td>5</td>
-                    <td>$3</td>
-                </tbody>
-                <tbody>
-                    <td>HP</td>
-                    <td>100</td>
-                    <td>$1</td>
-                </tbody>
-                <tbody>
-                    <td>Dell</td>
-                    <td>6</td>
-                    <td>$2</td>
-                </tbody>
+            </div>
                 <tfoot>
+                    <th>#</th>
+                    <th>Order ID</th>
+                    <th>Unit Price</th>
+                    <th>Ticker</th>
+                    <th>Status ID</th>
                     <th>Quantity</th>
-                    <th>Price</th>
-                    <th>Order Value</th>
+                    <th>Transc. ID</th>
+                    <th>Created Date</th>
+                    <th>Modified Date</th>
+                    <th>Order Type ID</th>
+                    <!-- <th style="background-color: rgb(15, 173, 81);">Side</th> -->
                 </tfoot>
             </table>
         </div>
-        <div class="table-wrapper">
-            <table width="80%">
-                <thead>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                    <th>Order Value</th>
-                </thead>
-                <tbody>
-                    <td>Apple</td>
-                    <td>10</td>
-                    <td>$1.5</td>
-                </tbody>
-                <tbody>
-                    <td>IBM</td>
-                    <td>5</td>
-                    <td>$3</td>
-                </tbody>
-                <tbody>
-                    <td>HP</td>
-                    <td>100</td>
-                    <td>$1</td>
-                </tbody>
-                <tbody>
-                    <td>Dell</td>
-                    <td>6</td>
-                    <td>$2</td>
-                </tbody>
-                <tfoot>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                    <th>Order Value</th>
-                </tfoot>
-            </table>
-        </div>
+        <span style="color: darkcyan ;">{{allOrders}}</span>
     </div>
-</ng-template>
 
 <!-- adding to portfolio -->
 <ng-template [ngIf]="whenclicked==false" [ngIfElse]="none">
@@ -216,16 +233,24 @@
         <div class="table-title">
             <span>Make Order</span>
         </div>
-        <form> 
-            <select name="ticker" id="ticker">
-                <option value="">Mac</option>
-                <option value="">Mac</option>
-                <option value="">Mac</option>
-                <option value="">Mac</option>
+        <form (ngSubmit)="onSubmitOrder()"> 
+            <select name="ticker" [(ngModel)]="ticker" >
+                <option value="MSFT">MSFT</option>
+                <option value="NFLX">NFLX</option>
+                <option value="GOOGL">GOOGL</option>
+                <option value="APPL">APPL</option>
+                <option value="TSLA">TSLA</option>
+                <option value="IBM">IBM</option>
+                <option value="ORCL">ORCL</option>
+                <option value="AMZN">AMZN</option>
             </select>&nbsp;
-            <input type="text" placeholder="price"><br>
-            <input type="text" placeholder="quantity"><br>
-            <button type="submit">Buy</button>
+            <input type="text" name="price" [(ngModel)]="price" placeholder="price" ><br>
+            <input type="text" name="quantity" [(ngModel)]="quantity" placeholder="quantity">&nbsp;
+            <select name="side" [(ngModel)]="side" >
+                <option value="BUY">Buy</option>
+                <option value="SELL">Sell</option>
+            </select><br>
+            <button type="submit">Submit</button>&nbsp;
         </form>
     </div>
 </div>

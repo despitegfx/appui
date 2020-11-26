@@ -10,6 +10,19 @@ export class ClientDetail{
     _links: { self: { href: string }, clients: {href: string } };
 }
 
+export class ClientOrders{
+    orderId: string;
+    userId: string;
+    unitPrice: number;
+    tickerSymbol: string;
+    statusId: number;
+    quantity: number;
+    transactionId: number;
+    dateCreated: string
+    dateModified: string;
+    orderTypeId: number;
+}
+
 export class ClientLogin{
     userId:any;
 }

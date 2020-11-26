@@ -96,13 +96,16 @@
     background-color: rgb(238, 129, 12);
     color: antiquewhite;
     text-align: left;
+    font-size: 12px;
     text-indent: 10px;
+
 }
 
 .table-wrapper tfoot {
     background-color: rgb(238, 129, 12);
     color: antiquewhite;
     text-align: left;
+    font-size: 12px;
     text-indent: 10px;
 }
 
@@ -112,6 +115,7 @@
     text-align: left;
     text-indent: 10px;
     font-size: 10pt;
+    height: 25px;
     border-bottom-style: solid;
     border-bottom-width: 0.5px;
     border-bottom-color: rgb(238, 129, 12);
