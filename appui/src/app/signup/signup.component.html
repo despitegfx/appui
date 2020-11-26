@@ -1,0 +1,37 @@
+<div class="main-container">
+    <!-- form title/heading here -->
+    <div class="title">
+        <span>Signup</span>
+    </div>
+    <!-- form title/heading ends -->
+    <!-- signup form here -->
+    <div class="form-items">
+        <form (ngSubmit)="onCreate()">
+            <!-- error/warning message -->
+            <div class="warning" *ngIf="error==true">
+                <span>All fields are required!!!</span>
+            </div>
+            <!-- success message -->
+            <div class="success" *ngIf="error==false">
+                <span>Successfully created</span>
+            </div>
+            <div class="warning" *ngIf="failed==true">
+                <span>Failed to create account, Something went wrong!!!</span>
+            </div>
+            <input type="text" name="fname" [(ngModel)]="fname" placeholder="First Name" />
+            <input type="text" name="lname" [(ngModel)]="lname" placeholder="Last Name" /><br>
+            <input type="email" name="email" [(ngModel)]="email" placeholder="Email..." required email #pass="ngModel"/>
+            <input type="text" name="cardDetails" [(ngModel)]="cardDetails" placeholder="Card Pin"/><br>
+            <input type="text" name="bankBalance" [(ngModel)]="bankBalance" placeholder="Bank Balance"/>
+            <input type="password" name="password" [(ngModel)]="password" placeholder="Password..."  /><br>
+            <input type="password" name="confirmPassword" [(ngModel)]="confirmPassword" placeholder="Confirm Password..."/>
+            <button type="submit" [disabled]="password!=confirmPassword" [disabled]="!pass.valid" >Signup</button>
+        </form>
+    </div>
+    <!-- signup form ends -->
+    <!-- login link here -->
+    <div class="link">
+        <span>Already registered? <a routerLink="['./']" (click)="onGoToLogin()" >Login</a></span>
+    </div>
+    <!-- create account ends -->
+</div>
