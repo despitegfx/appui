@@ -2,15 +2,58 @@
     <div class="outline">
         <div class="outline-inner">
             <!-- Welcome text  -->
-            <h3>You Are <span class="trading-engine">Welcome</span></h3>
+            <h3>MARKET<span class="trading-engine"> DATA</span></h3>
             <!-- Welcome text ends -->
-            <!-- link to the dashboard -->
-            <a routerLink="['./']" (click)="goToDashboard()">
-                <div class="dash-button">
-                    <span class="dashboard">GO TO DASHBOARD</span>
-                </div>
-            </a>
-            <!-- link to the dashboard ends -->
+            <div class="table-wrapper">
+                <table width="100%">
+                    <thead>
+                        <tr>
+                        <th>#</th>
+                        <th>TICKER</th>
+                        <th>BID_PRICE</th>
+                        <th>ASK_PRICE</th>
+                        <th>SELL_LIMIT</th>
+                        <th>BUY_LIMIT</th>
+                        <th>LAST_TRADED_PRICE</th>
+                        <th>MAX_PRICE_SHIFT</th>
+                    </tr>
+                        <!-- <th style="background-color: rgb(15, 173, 81);">Side</th> -->
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let collect of allMarketData; let i = index">
+                            
+                        <td>{{ i+1 }}</td>
+                        <td>{{collect.TICKER}}</td>
+                        <td>{{collect.BID_PRICE}}</td>
+                        <td>{{collect.ASK_PRICE}}</td>
+                        <td>{{collect.SELL_LIMIT}}</td>
+                        <td>{{collect.BUY_LIMIT}}</td>
+                        <td>{{collect.LAST_TRADED_PRICE}}</td>
+                        <td>{{collect.MAX_PRICE_SHIFT}}</td>
+                    </tr>
+                        <!-- <td style="background-color: rgb(15, 173, 81);">BUY</td> -->
+                    </tbody>
+                    <!-- <tfoot>
+                        <th>#</th>
+                        <th>Order ID</th>
+                        <th>Unit Price</th>
+                        <th>Ticker</th>
+                        <th>Status ID</th>
+                        <th>Quantity</th>
+                        <th>Created Date</th>
+                        <th>Modified Date</th>
+                        <th>Order Type ID</th> -->
+                        <!-- <th style="background-color: rgb(15, 173, 81);">Side</th> -->
+                    <!-- </tfoot> -->
+                </table>
+            </div>
         </div>
     </div>
+       <!-- link to the dashboard -->
+       <a routerLink="['./']" (click)="goToDashboard()">
+        <div class="dash-button">
+            <span class="dashboard">GO TO DASHBOARD</span>
+        </div>
+    </a>
+    <!-- link to the dashboard ends -->
 </div>

@@ -41,6 +41,7 @@ export class DashboardComponent implements OnInit {
     this.checklogin();
     this.successfullyLogin();
     this.onFetchOrder();
+    this.onFetchOrder();
   }
 
   bringPortfolio(){

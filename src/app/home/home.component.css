@@ -1,6 +1,6 @@
 .wrapper {
     width: 100%;
-    padding-top: 10%;
+    padding-top: 5%;
     padding-bottom: 10%;
 }
 
@@ -9,7 +9,7 @@
 }
 
 .outline {
-    width: 70%;
+    width: 90%;
     border-style: solid;
     border-radius: 5px;
     border-width: 1.5px;
@@ -18,7 +18,7 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: auto;
-    margin-bottom: auto;
+    margin-bottom: 2em;
 }
 
 .outline h3 {
@@ -48,4 +48,42 @@
 .dash-button:hover {
     background-color: rgb(238, 129, 12);
     color: rgb(6, 6, 38);
+}
+
+.table-wrapper {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.table-wrapper thead {
+    background-color: rgb(238, 129, 12);
+    color: antiquewhite;
+    text-align: left;
+    font-size: 12px;
+    text-indent: 10px;
+
+}
+
+.table-wrapper tfoot {
+    background-color: rgb(238, 129, 12);
+    color: antiquewhite;
+    text-align: left;
+    font-size: 12px;
+    text-indent: 10px;
+}
+
+.table-wrapper td {
+    background-color: rgb(10, 10, 63);
+    color: antiquewhite;
+    text-align: left;
+    text-indent: 10px;
+    font-size: 10pt;
+    height: 25px;
+    border-bottom-style: solid;
+    border-bottom-width: 0.5px;
+    border-bottom-color: rgb(238, 129, 12);
+}
+
+.table-wrapper th {
+    height: 30px;
 }

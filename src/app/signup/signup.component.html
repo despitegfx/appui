@@ -18,14 +18,14 @@
             <div class="warning" *ngIf="failed==true">
                 <span>Failed to create account, Something went wrong!!!</span>
             </div>
-            <input type="text" name="fname" [(ngModel)]="fname" placeholder="First Name" />
+            <input type="text" name="fname" [(ngModel)]="fname" placeholder="First Name" /><br>
             <input type="text" name="lname" [(ngModel)]="lname" placeholder="Last Name" /><br>
-            <input type="email" name="email" [(ngModel)]="email" placeholder="Email..." required email #pass="ngModel"/>
+            <input type="email" name="email" [(ngModel)]="email" placeholder="Email..." required email #pass="ngModel"/><br>
             <input type="text" name="cardDetails" [(ngModel)]="cardDetails" placeholder="Card Pin"/><br>
-            <input type="text" name="bankBalance" [(ngModel)]="bankBalance" placeholder="Bank Balance"/>
+            <input type="text" name="bankBalance" [(ngModel)]="bankBalance" placeholder="Bank Balance"/><br>
             <input type="password" name="password" [(ngModel)]="password" placeholder="Password..."  /><br>
-            <input type="password" name="confirmPassword" [(ngModel)]="confirmPassword" placeholder="Confirm Password..."/>
-            <button type="submit" [disabled]="password!=confirmPassword" [disabled]="!pass.valid" >Signup</button>
+            <input type="password" name="confirmPassword" [(ngModel)]="confirmPassword" placeholder="Confirm Password..."/><br>
+            <button type="submit" [disabled]="password!=confirmPassword" [disabled]="!pass.valid" >{{ loading }}</button>
         </form>
     </div>
     <!-- signup form ends -->

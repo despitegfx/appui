@@ -23,6 +23,8 @@ export class SignupComponent implements OnInit {
   incorrectError:boolean;
   failed:boolean;
 
+  loading: string="Signup";
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {
@@ -34,7 +36,7 @@ onCreate(){
     this.error = true;
 
   } else {
-    
+  this.loading="creating...";
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
@@ -55,10 +57,11 @@ onCreate(){
     .then(response => response.text())
     .then(result => {
       id = JSON.parse(result).id;
-    
+      
     if (id) {
+      this.loading="Signup";
       this.error = false;
-      const numbers = timer(1000);
+      const numbers = timer(2000);
       numbers.subscribe(call => this.router.navigate(['/login']));
      
     }else{

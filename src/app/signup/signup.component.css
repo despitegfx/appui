@@ -1,7 +1,7 @@
 .main-container {
     width: 40%;
     height: 0px;
-    padding-top: 80px;
+    padding-top: 50px;
     color: aliceblue;
     margin-left: auto;
     margin-right: auto;
@@ -63,7 +63,7 @@ button {
     color: rgb(17, 17, 17);
     border-style: none;
     border-radius: 10px;
-    text-indent: 10px;
+    
     margin-top: 15px;
     outline-style: none;
     font-size: 13pt;
