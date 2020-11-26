@@ -13,15 +13,19 @@ export class DashboardComponent implements OnInit {
 
   
   orderBringform: boolean;
+  BringOrdersTable: boolean;
+  BringPortfolio: boolean=true;
+
+
   clientdetail: ClientDetail;
   whenclicked:boolean;
   allOrders:[];
-  counter:number=1;
+  counter:number;
 
   
   getid=this.apiservice.getUserId();
 
-  orderId: string="dfsdhk5";
+  orderId: string= "";
   userId: string=this.getid;
   ticker:string="";
   status: string="Unvalidated";
@@ -39,8 +43,22 @@ export class DashboardComponent implements OnInit {
     this.onFetchOrder();
   }
 
-  clicking(){
-    //this.orderBringform = true;
+  bringPortfolio(){
+    this.BringOrdersTable=false;
+    this.orderBringform=false
+  }
+
+  //when order button is clicked
+  onOrder(){
+    this.orderBringform=true;
+    this.BringPortfolio=false
+    this.BringOrdersTable=false;
+  }
+
+  brindOrdersTable(){
+    this.BringOrdersTable=true;
+    this.orderBringform=false;
+    this.BringPortfolio=false
   }
 
   addProduct(){
@@ -51,11 +69,17 @@ export class DashboardComponent implements OnInit {
     // console.log(this.spawned_password);
   }
 
+  clicking(){
+
+  }
+
+  // clear all cookie services when logout
   logout(){
     this.apiservice.logOut();
     this.checklogin();
   }
 
+  // check if clients has logged in
   checklogin(){
     if (this.apiservice.getUserId()==null || this.apiservice.getUserId()==undefined || this.apiservice.getUserId()=="") {
     this.router.navigate(['/login']);
@@ -64,6 +88,7 @@ export class DashboardComponent implements OnInit {
   
  }
 
+ //fetch client details when logged in
   successfullyLogin(){
     this.apiservice.getClientDetail()
     .subscribe(data => {
@@ -71,14 +96,9 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  //order here
-  onOrder(){
-    this.orderBringform=true;
-  }
-
+  //when submit order button is clicked
   onSubmitOrder(){
     if(this.ticker=="" || this.price==null || this.quantity==null || this.side=="") {
-      // TODO: remove this.error = true;
   
     } else {
       
@@ -86,7 +106,7 @@ export class DashboardComponent implements OnInit {
     myHeaders.append("Content-Type", "application/json");
   
      var raw = JSON.stringify({
-      "orderId":this.orderId,
+      "orderId":this.makeOrderId(),
       "userId":this.userId,
       "ticker":this.ticker,
       "status":this.status,
@@ -110,6 +130,8 @@ export class DashboardComponent implements OnInit {
     .then(result => console.log(result))
     .catch(error => console.log('error', error));
     
+    this.onFetchOrder();
+
     }
 
   }
@@ -122,7 +144,18 @@ export class DashboardComponent implements OnInit {
     .subscribe(data=>
       this.allOrders=data
     );
-      
+    
      }
+
+    //  order id generator
+     makeOrderId() {
+      var text = "";
+      var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    
+      for (var i = 0; i < 6; i++)
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+    
+      return text;
+    }
   
 }
