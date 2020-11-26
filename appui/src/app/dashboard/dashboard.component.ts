@@ -15,25 +15,23 @@ export class DashboardComponent implements OnInit {
   orderBringform: boolean;
   clientdetail: ClientDetail;
   whenclicked:boolean;
-  allOrders:string;
+  allOrders:[];
+  counter:number=1;
+
   
   getid=this.apiservice.getUserId();
 
-  orderId: string="dfsdh8934hb349348";
+  orderId: string="dfsdhk5";
   userId: string=this.getid;
-  unitPrice:number;
-  tickerSymbol:string="";
-  statusId: number;
-  quantity:number;
-  transactionId: number;
+  ticker:string="";
+  status: string="Unvalidated";
   dateCreated: string = new Date().toString();
   dateModified: string = new Date().toString();
-  orderTypeId: number;
-  
-  
-  //side: string="";
-  constructor(private apiservice: ApiService, private router: Router) {}
+  price:number;
+  quantity:number;
+  side: string="";
 
+  constructor(private apiservice: ApiService, private router: Router) {}
 
   ngOnInit(): void {
     this.checklogin();
@@ -62,6 +60,8 @@ export class DashboardComponent implements OnInit {
     if (this.apiservice.getUserId()==null || this.apiservice.getUserId()==undefined || this.apiservice.getUserId()=="") {
     this.router.navigate(['/login']);
     }
+
+  
  }
 
   successfullyLogin(){
@@ -77,25 +77,24 @@ export class DashboardComponent implements OnInit {
   }
 
   onSubmitOrder(){
-    if(this.tickerSymbol=="" || this.unitPrice==null || this.quantity==null ){//|| this.side=="") {
+    if(this.ticker=="" || this.price==null || this.quantity==null || this.side=="") {
       // TODO: remove this.error = true;
   
     } else {
       
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
-
+  
      var raw = JSON.stringify({
       "orderId":this.orderId,
       "userId":this.userId,
-      "unitPrice":this.unitPrice,
-      "tickerSymbol":this.tickerSymbol,
-      "statusId":this.statusId,
-      "quantity":this.quantity,
-      "transactionId":this.transactionId,
+      "ticker":this.ticker,
+      "status":this.status,
       "dateCreated":this.dateCreated,
       "dateModified":this.dateModified,
-      "orderTypeId":this.orderTypeId
+      "price":this.price,
+      "quantity":this.quantity,
+      "side":this.side
     });
 
     var options:RequestInit = {
@@ -112,30 +111,36 @@ export class DashboardComponent implements OnInit {
     .catch(error => console.log('error', error));
     
     }
+
   }
   
 
-  // fetch order details here
+  // fetch order detaissls heres
   onFetchOrder(){
 
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
+    this.apiservice.getClientOrders()
+    .subscribe(data=>
+      this.allOrders=data
+    );
+  
+    // var myHeaders = new Headers();
+    // myHeaders.append("Content-Type", "application/json");
 
-    var requestOptions:RequestInit = {
-      method: 'GET',
-      headers: myHeaders,
-      redirect: 'follow',
-      mode: 'no-cors'
-    };
+    // var requestOptions:RequestInit = {
+    //   method: 'GET',
+    //   headers: myHeaders,
+    //   redirect: 'follow',
+    //   mode: 'no-cors'
+    // };
 
-    fetch("https://trade-reporting-service.herokuapp.com/orders/all", requestOptions)
-    .then(response => response.text())
-    .then(result => {
-      console.log(JSON.stringify(result));
-    })
-    .catch(error => console.log('error', error));
+    // fetch("https://trade-reporting-service.herokuapp.com/orders/all", requestOptions)
+    // .then(response => response.text())
+    // .then(result => {
+    //   console.log(result);
+    // })
+    // .catch(error => console.log('error', error));
       
     
-    }
+     }
   
 }
