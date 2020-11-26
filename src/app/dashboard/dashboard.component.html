@@ -13,6 +13,13 @@
             </div>
         </a>
     </div>
+    <div class="buttons-cover">
+        <a routerLink="['./']" (click)="brindOrdersTable()">
+            <div class="buttons">
+                <span>View Order</span>
+            </div>
+        </a>
+    </div>
     <div class="user-logo">
         <div class="userlogo">
             <span>{{ clientdetail['fname'].charAt(0) }}</span>
@@ -23,7 +30,6 @@
             <span>{{ clientdetail['fname']+" "+clientdetail['lname'] }}</span>
         </div>
     </div>
-
 
 </div>
 <div class="outline">
@@ -165,7 +171,7 @@
         </div>
     </ng-template>
 
-    <div class="outline">
+    <div class="outline" *ngIf="BringOrdersTable==true">
         <div class="table-title">
             <span>All Orders</span>
         </div>
@@ -184,9 +190,9 @@
                     <!-- <th style="background-color: rgb(15, 173, 81);">Side</th> -->
                 </thead>
                 <tbody>
-                    <tr *ngFor="let come of allOrders">
+                    <tr *ngFor="let come of allOrders; let i = index">
                         
-                    <td>{{ counter }}</td>
+                    <td>{{ i+1 }}</td>
                     <td>{{come.orderId}}</td>
                     <td>{{come.price}}</td>
                     <td>{{come.ticker}}</td>
@@ -225,12 +231,14 @@
 <!-- adding to portfolio ends -->
 
 
-<div class="outline" *ngIf="orderBringform==true">
+<div class="outline" *ngIf="BringOrdersTable==false">
     <div class="addsome">
         <div class="table-title">
             <span>Make Order</span>
         </div>
+        <div class="form-items">
         <form (ngSubmit)="onSubmitOrder()"> 
+            <label>Select Ticker</label><br>
             <select name="ticker" [(ngModel)]="ticker" >
                 <option value="MSFT">MSFT</option>
                 <option value="NFLX">NFLX</option>
@@ -240,15 +248,19 @@
                 <option value="IBM">IBM</option>
                 <option value="ORCL">ORCL</option>
                 <option value="AMZN">AMZN</option>
-            </select>&nbsp;
-        <input type="text" name="price" [(ngModel)]="price" placeholder="price"><br>
-            <input type="text" name="quantity" [(ngModel)]="quantity" placeholder="quantity">&nbsp;
+            </select><br>
+            <label>Choose Side</label><br>
             <select name="side" [(ngModel)]="side" >
                 <option value="BUY">Buy</option>
                 <option value="SELL">Sell</option>
             </select><br>
-            <button type="submit">Submit</button>&nbsp;
+        <label>Enter Price</label><br>
+        <input type="text" name="price" [(ngModel)]="price" ><br>
+        <label>Select Quantity</label><br>
+        <input type="number" min="1" name="quantity" [(ngModel)]="quantity" ><br>
+            <button type="submit">Submit</button>
         </form>
+    </div>
     </div>
 </div>
 

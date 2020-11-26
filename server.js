@@ -12,5 +12,5 @@ app.all('/*', function(req, res) {
 var server = app.listen(process.env.PORT || 8080, () => {
     var port = server.address().port;
     console.log("App started on " + port);
-    console.log("http://localhost:4200")
+    console.log(`http://localhost:${port}`)
 });

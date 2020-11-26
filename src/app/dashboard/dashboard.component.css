@@ -39,9 +39,10 @@
 
 .buttons {
     background-color: rgb(238, 129, 12);
-    width: 80px;
     height: 25px;
     line-height: 25px;
+    padding-left: 1em;
+    padding-right: 1em;
     font-size: 10pt;
     text-align: center;
     border-radius: 5px;
@@ -136,4 +137,59 @@
 
 .pro {
     color: rgb(3, 5, 24);
+}
+
+.form-items{
+    float: left;
+    
+}
+
+.form-items input{
+    width: 250px;
+    height: 40px;
+    background-color: rgb(30, 30, 72);
+    color: rgb(202, 202, 223);
+    border-style: none;
+    border-radius: 10px;
+    text-indent: 10px;
+    margin-top: 10px;
+    outline-style: none;
+    font-size: 11pt;
+
+
+
+}
+
+.form-items select{
+    width: 250px;
+    height: 40px;
+    background-color: rgb(30, 30, 72);
+    color: rgb(202, 202, 223);
+    border-style: none;
+    border-radius: 10px;
+    text-indent: 10px;
+    margin-top: 10px;
+    outline-style: none;
+    font-size: 11pt;
+}
+
+.form-items button {
+    width: 160px;
+    height: 40px;
+    background-color: rgb(238, 129, 12);
+    color: rgb(17, 17, 17);
+    border-style: none;
+    border-radius: 10px;
+    text-indent: 10px;
+    margin-top: 15px;
+    outline-style: none;
+    font-size: 13pt;
+    margin-bottom: 1em;
+}
+
+.form-items label{
+    color: aliceblue;
+    font-size: 9pt;
+    margin-left: 1em;
+    padding-top: 10px;
 }

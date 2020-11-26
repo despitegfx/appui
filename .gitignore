@@ -10,7 +10,7 @@
 # dependencies
 /node_modules
 /appui/node_modules
-/
+/.metals
 
 # profiling files
 chrome-profiler-events*.json
