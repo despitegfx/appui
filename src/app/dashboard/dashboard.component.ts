@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { Router } from '@angular/router';
 import { ClientDetail, ClientOrders } from '../services/endpoint';
-import { DatePipe, formatDate } from '@angular/common';
+import { DatePipe} from '@angular/common';
 
 @Component({
   selector: 'app-dashboard',
@@ -29,13 +29,13 @@ export class DashboardComponent implements OnInit {
   userId: string=this.getid;
   ticker:string="";
   status: string="Unvalidated";
-  dateCreated: string = new Date().toString();
-  dateModified: string = new Date().toString();
+  dateCreated:number= Date.now();
+  dateModified:number = Date.now();
   price:number;
   quantity:number;
   side: string="";
 
-  constructor(private apiservice: ApiService, private router: Router) {}
+  constructor(private apiservice: ApiService, private router: Router ) {}
 
   ngOnInit(): void {
     this.checklogin();
