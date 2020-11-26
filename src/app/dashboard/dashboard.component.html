@@ -178,26 +178,27 @@
                     <th>Ticker</th>
                     <th>Status ID</th>
                     <th>Quantity</th>
+                    <th>Transc. ID</th>
                     <th>Created Date</th>
                     <th>Modified Date</th>
                     <th>Order Type ID</th>
                     <!-- <th style="background-color: rgb(15, 173, 81);">Side</th> -->
                 </thead>
+                <div *ngFor="let come of allOrders">
                 <tbody>
-                    <tr *ngFor="let come of allOrders">
-                        
-                    <td>{{ counter }}</td>
+                    <td>4</td>
                     <td>{{come.orderId}}</td>
-                    <td>{{come.price}}</td>
-                    <td>{{come.ticker}}</td>
-                    <td>{{come.status}}</td>
-                    <td>{{come.quantity}}</td>
+                    <td>{{come.userId}}</td>
+                    <td>{{come.unitPrice}}</td>
+                    <td>{{come.tickerSymbol}}</td>
+                    <td>{{come.statusId}}</td>
+                    <td>{{come.transactionId}}</td>
                     <td>{{come.dateCreated}}</td>
                     <td>{{come.dateModified}}</td>
-                    <td>{{come.side}}</td>
-                </tr>
+                    <td>{{come.orderTypeId}}</td>
                     <!-- <td style="background-color: rgb(15, 173, 81);">BUY</td> -->
                 </tbody>
+            </div>
                 <tfoot>
                     <th>#</th>
                     <th>Order ID</th>
@@ -205,6 +206,7 @@
                     <th>Ticker</th>
                     <th>Status ID</th>
                     <th>Quantity</th>
+                    <th>Transc. ID</th>
                     <th>Created Date</th>
                     <th>Modified Date</th>
                     <th>Order Type ID</th>
@@ -212,6 +214,7 @@
                 </tfoot>
             </table>
         </div>
+        <span style="color: darkcyan ;">{{allOrders}}</span>
     </div>
 
 <!-- adding to portfolio -->
@@ -241,7 +244,7 @@
                 <option value="ORCL">ORCL</option>
                 <option value="AMZN">AMZN</option>
             </select>&nbsp;
-        <input type="text" name="price" [(ngModel)]="price" placeholder="price"><br>
+            <input type="text" name="price" [(ngModel)]="price" placeholder="price" ><br>
             <input type="text" name="quantity" [(ngModel)]="quantity" placeholder="quantity">&nbsp;
             <select name="side" [(ngModel)]="side" >
                 <option value="BUY">Buy</option>

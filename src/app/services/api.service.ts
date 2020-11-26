@@ -10,16 +10,11 @@ import { CookieService } from 'ngx-cookie-service';
 export class ApiService {
 
     url_: string = "https://trade-client-connectivity.herokuapp.com";
-    url_orders: string = "https://trade-reporting-service.herokuapp.com";
 
     constructor(private http: HttpClient, private cookieservice: CookieService) {}
 
     getClientDetail(): Observable<any>{
         return this.http.get(this.url_+'/client/get/'+this.getUserId());
-    }
-
-    getClientOrders(): Observable<any>{
-        return this.http.get(this.url_orders+'/orders/all');
     }
 
     idname:string;
