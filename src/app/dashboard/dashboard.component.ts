@@ -46,6 +46,7 @@ export class DashboardComponent implements OnInit {
     this.onFetchOrder();
     this.onFetchOrder();
     this.marketData();
+
   }
 
   bringPortfolio(){
@@ -159,15 +160,22 @@ export class DashboardComponent implements OnInit {
   }
 
   
-  
+    
 
-  // fetch order detaissls heres
+
+  // fetch order details heres
   onFetchOrder(){
-
-    this.apiservice.getClientOrders()
+    let intervalo = setInterval( () => {
+      this.apiservice.getClientOrders()
     .subscribe(data=>
       this.allOrders=data
     );
+    }
+      , 2000);
+        setTimeout(function() {
+            clearInterval(intervalo);
+        }, 40000);
+    
     
      }
 
