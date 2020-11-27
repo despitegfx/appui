@@ -18,6 +18,8 @@ export class LoginComponent implements OnInit {
   loginstatus:any;
   internetError:string;
 
+  loading:string="Login";
+
   constructor(private apiservice: ApiService, private router: Router) {}
 
   ngOnInit(): void {}
@@ -26,8 +28,9 @@ export class LoginComponent implements OnInit {
 
     if(this.email=="" || this.password==""){
       this.error=true;
-
+      
     }else{
+      this.loading="logging...";
       this.error=false;
 
       var myHeaders = new Headers();
@@ -52,17 +55,21 @@ export class LoginComponent implements OnInit {
           loginstatus = JSON.parse(result).status;
         
          if (loginstatus=="failed") {
+          this.loading="Login";
            this.incorrectError=true;
 
          } else if(loginstatus=="authenticated"){
-
+          this.loading="Login";
           this.incorrectError=true;
           this.apiservice.setUserId(id);
           this.router.navigate(['/dashboard']);
          
         }
           
-        }).catch(error => this.internetError = "Login failed, try again");
+        }).catch(error => {
+          this.internetError = "Login failed, try again";
+          this.loading="Login";
+        });
 
 
         

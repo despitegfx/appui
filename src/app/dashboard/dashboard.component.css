@@ -36,7 +36,7 @@
     border-radius: 99px;
     color: rgb(0, 0, 07, 100);
 }
-
+ 
 .buttons {
     background-color: rgb(238, 129, 12);
     height: 25px;
@@ -63,7 +63,7 @@
     padding: 10px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
 .table-title {
@@ -180,7 +180,6 @@
     color: rgb(17, 17, 17);
     border-style: none;
     border-radius: 10px;
-    text-indent: 10px;
     margin-top: 15px;
     outline-style: none;
     font-size: 13pt;
@@ -192,4 +191,31 @@
     font-size: 9pt;
     margin-left: 1em;
     padding-top: 10px;
+}
+
+.footer{
+    margin-top: 5em;
+    float: left;
+    width: 100%;
+}
+
+.success-message{
+    float: left;
+    text-align: center;
+    line-height: 270px;
+    font-size: 22pt;
+    width: 50%;
+}
+
+.warning {
+    background-color: rgb(216, 126, 126);
+    color: rgb(119, 0, 0);
+    font-size: 11pt;
+    width: 250px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    margin-top: 0.4em;
+    margin-bottom: 0.4em;
+    border-radius: 10px;
 }

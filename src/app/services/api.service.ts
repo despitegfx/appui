@@ -12,6 +12,7 @@ export class ApiService {
     url_: string = "https://trade-client-connectivity.herokuapp.com";
     url_orders: string = "https://trade-reporting-service.herokuapp.com";
     url_market: string= "https://exchange2.matraining.com/md";
+    idname:string;
 
     constructor(private http: HttpClient, private cookieservice: CookieService) {}
 
@@ -27,7 +28,6 @@ export class ApiService {
         return this.http.get(this.url_market);
     }
 
-    idname:string;
     setUserId(id: string){
         this.cookieservice.set(this.idname, id);
     }
@@ -36,7 +36,7 @@ export class ApiService {
     }
 
     logOut(){
-        this.cookieservice.deleteAll('/');
+        this.cookieservice.delete(this.idname);
     }
 }
 

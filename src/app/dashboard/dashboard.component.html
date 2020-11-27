@@ -135,41 +135,7 @@
 
 <ng-template [ngIf]="whenclicked==true" [ngIfElse]="none">
     
-        <div class="table-wrapper">
-            <table width="80%">
-                <thead>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                    <th>Order Value</th>
-                </thead>
-                <tbody>
-                    <td>Apple</td>
-                    <td>10</td>
-                    <td>$1.5</td>
-                </tbody>
-                <tbody>
-                    <td>IBM</td>
-                    <td>5</td>
-                    <td>$3</td>
-                </tbody>
-                <tbody>
-                    <td>HP</td>
-                    <td>100</td>
-                    <td>$1</td>
-                </tbody>
-                <tbody>
-                    <td>Dell</td>
-                    <td>6</td>
-                    <td>$2</td>
-                </tbody>
-                <tfoot>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                    <th>Order Value</th>
-                </tfoot>
-            </table>
-        </div>
-    </ng-template>
+</ng-template>
 
     
     <div class="outline" *ngIf="BringOrdersTable==true">
@@ -177,7 +143,10 @@
             <span>All Orders</span>
         </div>
         <ng-template #none>
-            <span style="text-align: center; color: white; font-size: 16pt ;">No Order Made,  Please Place an Order<a style="color:rgb(238, 129, 12);" (click)="onOrder()" routerLink="['/']"> Here</a></span>
+            <span style="text-align: center; color: white; font-size: 13pt; margin-left: 10px;">
+                No order made,  please place an order
+                <a style="color:rgb(238, 129, 12);" (click)="onOrder()" routerLink="['/']"> Here</a>
+            </span>
         </ng-template>
         <ng-template [ngIf]=" allOrders!='' " [ngIfElse]="none">
         <div class="table-wrapper">
@@ -242,10 +211,13 @@
         <div class="table-title">
             <span>Make Order</span>
         </div>
+        <div class="warning" *ngIf="emptyInput==true">
+            <span>All fields are required!!!</span>
+        </div>
         <div class="form-items">
         <form (ngSubmit)="onSubmitOrder()"> 
             <label>Select Ticker</label><br>
-            <select name="ticker" [(ngModel)]="ticker" >
+            <select name="ticker" [(ngModel)]="ticker">
                 <option value="MSFT">MSFT</option>
                 <option value="NFLX">NFLX</option>
                 <option value="GOOGL">GOOGL</option>
@@ -260,17 +232,25 @@
                 <option value="BUY">Buy</option>
                 <option value="SELL">Sell</option>
             </select><br>
-        <label>Enter Price</label><br>
-        <input type="text" name="price" [(ngModel)]="price" ><br>
+        <label>Enter Price ($)</label><br>
+        <input type="number" min="1" name="price" [(ngModel)]="price" ><br>
         <label>Select Quantity</label><br>
         <input type="number" min="1" name="quantity" [(ngModel)]="quantity" ><br>
             <button type="submit">Submit</button>
         </form>
     </div>
+    <div class="success-message">
+        <span style="color: yellowgreen;" *ngIf="chooseMessage==true">{{ successMessage }}</span>
+        <span style="color: rgb(233, 28, 14);" *ngIf="chooseMessage==false">{{ successMessage }}</span>
+        <span style="color: rgb(229, 235, 247);" *ngIf="chooseMessage==null"> {{ successMessage }}</span>
+    </div>
     </div>
 </div>
-
 
 <ng-template #none>
 
 </ng-template>
+
+<div class="footer">
+    
+</div>

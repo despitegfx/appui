@@ -15,13 +15,16 @@ export class DashboardComponent implements OnInit {
   orderBringform: boolean;
   BringOrdersTable: boolean;
   BringPortfolio: boolean=true;
+  chooseMessage:boolean;
+  successMessage:string;
+  emptyInput:boolean=false;
 
 
   clientdetail: ClientDetail;
   whenclicked:boolean;
   allOrders:[];
   counter:number;
-
+  allMarketData:[];
   
   getid=this.apiservice.getUserId();
 
@@ -42,6 +45,7 @@ export class DashboardComponent implements OnInit {
     this.successfullyLogin();
     this.onFetchOrder();
     this.onFetchOrder();
+    this.marketData();
   }
 
   bringPortfolio(){
@@ -54,6 +58,7 @@ export class DashboardComponent implements OnInit {
     this.orderBringform=true;
     this.BringPortfolio=false
     this.BringOrdersTable=false;
+    this.marketData();
   }
 
   brindOrdersTable(){
@@ -100,9 +105,11 @@ export class DashboardComponent implements OnInit {
   //when submit order button is clicked
   onSubmitOrder(){
     if(this.ticker=="" || this.price==null || this.quantity==null || this.side=="") {
-  
+      this.emptyInput=true;
+
     } else {
-      
+    this.emptyInput=false;
+    this.successMessage="submitting order...";
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
   
@@ -125,17 +132,32 @@ export class DashboardComponent implements OnInit {
       redirect: 'follow',
       mode: 'cors'
     };
-  
+  let holdresultStatus;
+  let holdresultId;
     fetch("https://trade-client-connectivity.herokuapp.com/submitOrder", options)
     .then(response => response.text())
-    .then(result => console.log(result))
-    .catch(error => console.log('error', error));
+    .then(result => {
+        holdresultStatus = JSON.parse(result).status;
+        holdresultId = JSON.parse(result).orderId;
+        console.log(result);
+
+        if (holdresultStatus=="created") {
+          this.onFetchOrder();
+          this.chooseMessage=true;
+          this.successMessage="Order Successful";
     
-    this.onFetchOrder();
-
+        } else {
+          this.chooseMessage=false;
+          this.successMessage="Order Failed";
+        }
+    })
+    .catch(error => console.log('error', error));
     }
-
+    
+    
   }
+
+  
   
 
   // fetch order detaissls heres
@@ -157,6 +179,12 @@ export class DashboardComponent implements OnInit {
         text += possible.charAt(Math.floor(Math.random() * possible.length));
     
       return text;
+    }
+
+    marketData(){
+      this.apiservice.getMarketData()
+      .subscribe(data => this.allMarketData=data);
+      
     }
   
 }
