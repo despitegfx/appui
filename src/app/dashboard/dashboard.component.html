@@ -32,110 +32,30 @@
     </div>
 
 </div>
+<!-- creating portfolio -->
 <div class="outline">
     <div class="table-title">
         <span>Portfolio</span>
-        <a routerLink="['./']" (click)="addProduct()">
+        <a routerLink="['./']" (click)="addPortfolio()">
             <div class="add-portfolio">
-                <span>Add</span>
+                <span>Create Portfolio</span>
             </div>
         </a>
     </div>
-
 
     <a routerLink="['./']"  class="pro" (click)="clicking()">
         <div class="products">
             <span>Mac</span>
         </div>
     </a>
-    <a routerLink="['./']" class="pro" (click)="clicking()">
-        <div class="products">
-            <span>Emmanuel</span>
-        </div>
-    </a>
-    <a routerLink="['./']" class="pro" (click)="clicking()">
-        <div class="products">
-            <span>HP Pavilion</span>
-        </div>
-    </a>
-    <a routerLink="['./']" class="pro" (click)="clicking()">
-        <div class="products">
-            <span>Desktop Machine</span>
-        </div>
-    </a>
-    <a routerLink="['./']" class="pro" (click)="clicking()">
-        <div class="products">
-            <span>Main Frame Computer</span>
-        </div>
-    </a>
-    <a routerLink="['./']" class="pro" (click)="clicking()">
-        <div class="products">
-            <span>Dell</span>
-        </div>
-    </a>
-    <a routerLink="['./']" class="pro" (click)="clicking()">
-        <div class="products">
-            <span>Mac</span>
-        </div>
-    </a>
-    <a routerLink="['./']" class="pro" (click)="clicking()">
-        <div class="products">
-            <span>Mac</span>
-        </div>
-    </a>
-    <a routerLink="['./']" class="pro" (click)="clicking()">
-        <div class="products">
-            <span>Emmanuel</span>
-        </div>
-    </a>
-    <a routerLink="['./']" class="pro" (click)="clicking()">
-        <div class="products">
-            <span>HP Pavilion</span>
-        </div>
-    </a>
-    <a routerLink="['./']" class="pro" (click)="clicking()">
-        <div class="products">
-            <span>Desktop Machine</span>
-        </div>
-    </a>
-    <a routerLink="['./']" class="pro" (click)="clicking()">
-        <div class="products">
-            <span>Main Frame Computer</span>
-        </div>
-    </a>
-    <a routerLink="['./']" class="pro" (click)="clicking()">
-        <div class="products">
-            <span>Mac</span>
-        </div>
-    </a>
-    <a routerLink="['./']" class="pro" (click)="clicking()">
-        <div class="products">
-            <span>Emmanuel</span>
-        </div>
-    </a>
-    <a routerLink="['./']" class="pro" (click)="clicking()">
-        <div class="products">
-            <span>HP Pavilion</span>
-        </div>
-    </a>
-    <a routerLink="['./']" class="pro" (click)="clicking()">
-        <div class="products">
-            <span>Desktop Machine</span>
-        </div>
-    </a>
-    <a routerLink="['./']" class="pro" (click)="clicking()">
-        <div class="products">
-            <span>Main Frame Computer</span>
-        </div>
-    </a>
-
 
 </div>
+<!-- creating portfolio ends -->
 
 
-<ng-template [ngIf]="whenclicked==true" [ngIfElse]="none">
+<!-- <ng-template [ngIf]="whenclicked==true" [ngIfElse]="none">
     
-</ng-template>
+</ng-template> -->
 
     
     <div class="outline" *ngIf="BringOrdersTable==true">
@@ -196,17 +116,17 @@
     </div>
 
 <!-- adding to portfolio -->
-<ng-template [ngIf]="whenclicked==false" [ngIfElse]="none">
+<ng-template [ngIf]="createPortfolio==true" [ngIfElse]="none">
     <div class="outline">
         <div class="addsome">
-
+            
         </div>
     </div>
 </ng-template>
 <!-- adding to portfolio ends -->
 
 
-<div class="outline" *ngIf="BringOrdersTable==false">
+<div class="outline" *ngIf="orderBringform==true">
     <div class="addsome">
         <div class="table-title">
             <span>Make Order</span>

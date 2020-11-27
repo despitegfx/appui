@@ -20,8 +20,8 @@ export class DashboardComponent implements OnInit {
   emptyInput:boolean=false;
 
 
-  clientdetail: ClientDetail;
-  whenclicked:boolean;
+  clientdetail:[];
+  createPortfolio:boolean;
   allOrders:[];
   counter:number;
   allMarketData:[];
@@ -50,7 +50,8 @@ export class DashboardComponent implements OnInit {
 
   bringPortfolio(){
     this.BringOrdersTable=false;
-    this.orderBringform=false
+    this.orderBringform=false;
+    this.createPortfolio=false;
   }
 
   //when order button is clicked
@@ -58,6 +59,7 @@ export class DashboardComponent implements OnInit {
     this.orderBringform=true;
     this.BringPortfolio=false
     this.BringOrdersTable=false;
+    this.createPortfolio=false;
     this.marketData();
   }
 
@@ -67,12 +69,11 @@ export class DashboardComponent implements OnInit {
     this.BringPortfolio=false
   }
 
-  addProduct(){
-    //this.orderBringform = false;
-    // TODO: remove this
-    // console.log("hi sedem");
-    // this.spawned_password = JSON.stringify(spawn.spawn());    
-    // console.log(this.spawned_password);
+  addPortfolio(){
+    this.createPortfolio=true;
+    this.BringOrdersTable=false;
+    this.orderBringform=false;
+    this.BringPortfolio=false
   }
 
   clicking(){

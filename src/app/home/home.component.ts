@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
   }
 
   goToDashboard(){
-    this.router.navigate(['/dashboard']);
+    this.router.navigateByUrl('/dashboard');
   }
 
   marketData(){
