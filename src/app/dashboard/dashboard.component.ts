@@ -44,7 +44,6 @@ export class DashboardComponent implements OnInit {
     this.checklogin();
     this.successfullyLogin();
     this.onFetchOrder();
-    this.onFetchOrder();
     this.marketData();
 
   }
@@ -160,21 +159,17 @@ export class DashboardComponent implements OnInit {
   }
 
   
-    
-
-
   // fetch order details heres
   onFetchOrder(){
     let intervalo = setInterval( () => {
       this.apiservice.getClientOrders()
-    .subscribe(data=>
+      .subscribe(data=>
       this.allOrders=data
     );
-    }
-      , 2000);
+    }, 2000);
         setTimeout(function() {
             clearInterval(intervalo);
-        }, 40000);
+        }, 4000);
     
     
      }
